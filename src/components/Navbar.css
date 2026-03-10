@@ -1,0 +1,147 @@
+/* ───────────────────────────────────────
+   Navbar — floating pill bar
+   ─────────────────────────────────────── */
+
+.navbar {
+    z-index: 1000;
+    width: 100%;
+    padding: 0 15rem;
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+              0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Logo ── */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: #111;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.navbar-logo img{
+  width: 32px;
+}
+
+.logo-mark {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+}
+
+.logo-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+/* ── Nav Links ── */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111;
+}
+
+.nav-link--external {
+  color: #3b82f6;
+}
+
+.nav-link--external:hover {
+  color: #2563eb;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* ── Resume Button ── */
+
+.navbar-resume {
+    color: #fff;
+    white-space: nowrap;
+    background: #111;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    margin-left: 14px;
+    padding: 8px 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    display: inline-flex;
+}
+
+.navbar-resume:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 10px;
+  }
+
+  .navbar-inner {
+    padding: 8px 10px 8px 14px;
+    gap: 4px;
+  }
+
+  .logo-name {
+    display: none;
+  }
+
+  .navbar-logo {
+    margin-right: 8px;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+    padding: 5px 10px;
+  }
+
+  .navbar-resume {
+    padding: 7px 16px;
+    margin-left: 8px;
+    font-size: 0.82rem;
+  }
+}
