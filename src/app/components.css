@@ -11,3 +11,34 @@
   pointer-events: none;
   z-index: 9999;
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+  .card-main {
+    border-radius: 12px !important;
+    height: 300px !important;
+  }
+
+  .connect-card {
+    border-radius: 18px !important;
+    padding: 12px 12px 20px !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .card-footer {
+    gap: 14px !important;
+  }
+
+  .card-header h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .user-info {
+    gap: 5px !important;
+  }
+
+  .bio-text {
+    font-size: 1.5rem !important;
+  }
+}

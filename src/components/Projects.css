@@ -1,0 +1,388 @@
+/* Projects.css */
+
+.projects-section {
+  width: 100%;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.projects-container {
+  height: 100vh;
+  padding: 8rem 4rem 4rem 4rem;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-wrapper-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.project-card-1{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.project-card-2{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9/16;
+}
+
+.project-card-3{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.project-card-4{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.project-card-5{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.project-card-6{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.project-card-7{
+  background: #1a442e;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.projects-container .section-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.bento-item {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background-color: #123524;
+  /* Fallback Green background */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  min-height: 0;
+}
+
+.bento-item>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-item:hover>img {
+  transform: scale(1.05);
+}
+
+/* Specific items grid configuration */
+
+/* Row 1 & 2 Config */
+.item-laptop {
+  grid-column: span 5;
+  grid-row: span 2;
+}
+
+.item-water {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.item-billboard {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+/* Row 3 & 4 Config */
+.item-person-left {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-color: #1a442e;
+}
+
+.item-logo {
+  grid-column: span 5;
+  grid-row: span 1;
+  background-color: #133a25;
+}
+
+.item-icons {
+  grid-column: span 2;
+  grid-row: span 1;
+  background-color: #f6ec4b;
+  /* yellow */
+  color: #1a4f36;
+}
+
+.item-3d-logo {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.item-person-right {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+/* Overlays & Internal Layouts */
+.billboard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 38, 22, 0.7), transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+  pointer-events: none;
+}
+
+.billboard-overlay h3 {
+  color: white;
+  font-size: 2.2rem;
+  font-family: var(--font-primary, sans-serif);
+  font-weight: 500;
+  max-width: 80%;
+}
+
+.person-left-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 3rem 2.5rem;
+  width: 100%;
+}
+
+.person-circle-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.decorative-circles {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  top: 10%;
+  left: -15%;
+}
+
+.decorative-circles::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  bottom: -40px;
+  left: -20px;
+}
+
+.person-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--background, #fff);
+  position: relative;
+  z-index: 2;
+  margin-left: 2rem;
+}
+
+.person-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  /* Avoid anti alias borders */
+}
+
+.item-person-left h4 {
+  color: #f6ec4b;
+  /* text-yellow match */
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 500;
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+
+.visit-link {
+  color: #8ebd9e;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.logo-center {
+  font-size: 3.5rem;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: var(--font-primary, sans-serif);
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.icons-grid span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons-grid span svg {
+  transition: transform 0.3s ease;
+}
+
+.bento-item:hover .icons-grid span svg {
+  transform: scale(1.15);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .bento-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .billboard-overlay h3 {
+    font-size: 1.8rem;
+  }
+
+  .logo-center {
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: 200px;
+  }
+
+  .item-laptop {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .item-water {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .item-billboard {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .item-person-left {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .item-person-right {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .item-logo {
+    grid-column: span 8;
+    grid-row: span 1;
+  }
+
+  .item-icons {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  .item-3d-logo {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+
+  .decorative-circles {
+    display: none;
+  }
+
+  .person-circle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: 1rem;
+  }
+
+  .bento-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* Double heights for larger content areas on mobile */
+  .item-laptop,
+  .item-person-left,
+  .item-person-right {
+    grid-row: span 2 !important;
+  }
+
+  .item-icons {
+    grid-row: span 1 !important;
+    padding: 1rem;
+  }
+}

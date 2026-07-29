@@ -1,0 +1,319 @@
+/* ───────────────────────────────────────
+   Cinematic Footer
+   ─────────────────────────────────────── */
+
+.footer-reveal-wrapper {
+  position: relative;
+  height: 160vh; /* 60vh overlap (matches main's negative margin) + 100vh settled view */
+}
+
+.cinematic-footer {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #0a0a0d;
+  color: #f4f4f5;
+  padding-top: 64px;
+  isolation: isolate;
+}
+
+/* ── Aurora glow ── */
+
+.footer-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.aurora-blob--blue {
+  top: -10%;
+  left: -8%;
+  background: radial-gradient(circle, #3b82f6, transparent 70%);
+}
+
+.aurora-blob--purple {
+  top: 10%;
+  right: -12%;
+  background: radial-gradient(circle, #8b5cf6, transparent 70%);
+}
+
+.aurora-blob--teal {
+  bottom: -20%;
+  left: 30%;
+  background: radial-gradient(circle, #2dd4bf, transparent 70%);
+  opacity: 0.25;
+}
+
+/* ── Grid overlay ── */
+
+.footer-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 40%, transparent 100%);
+}
+
+/* ── Diagonal marquee ── */
+
+.footer-marquee {
+  position: relative;
+  z-index: 1;
+  width: 120%;
+  margin-left: -10%;
+  transform: rotate(-2deg);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 14px 0;
+}
+
+.footer-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: footer-marquee-scroll 26s linear infinite;
+}
+
+.footer-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.footer-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-family: "Libre Caslon Text", serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: rgba(244, 244, 245, 0.35);
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.marquee-dot {
+  color: #3b82f6;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+@keyframes footer-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Content ── */
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 24px 32px;
+}
+
+.footer-top {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 90px;
+}
+
+.footer-note {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  color: rgba(244, 244, 245, 0.55);
+  transform: rotate(-2deg);
+  margin-bottom: 6px;
+}
+
+.footer-heading {
+  font-family: "Libre Caslon Text", serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  max-width: 780px;
+  margin-bottom: 44px;
+}
+
+.mask-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.mask-word-inner {
+  display: inline-block;
+}
+
+/* ── Magnetic CTA button ── */
+
+.magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 34px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.magnetic-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.magnetic-btn-icon {
+  transition: transform 0.25s ease;
+}
+
+.magnetic-btn:hover .magnetic-btn-icon {
+  transform: translate(2px, -2px);
+}
+
+/* ── Columns ── */
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-logo {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.footer-tagline {
+  color: rgba(244, 244, 245, 0.5);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-column-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(244, 244, 245, 0.4);
+  margin-bottom: 4px;
+}
+
+.footer-column-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(244, 244, 245, 0.75);
+  text-decoration: none;
+  font-size: 0.98rem;
+  width: fit-content;
+  transition: color 0.2s ease;
+}
+
+.footer-column-links a:hover {
+  color: #fff;
+}
+
+/* ── Bottom bar ── */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  font-size: 0.88rem;
+  color: rgba(244, 244, 245, 0.4);
+}
+
+.footer-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(244, 244, 245, 0.6);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-back-to-top:hover {
+  color: #fff;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-marquee-item {
+    font-size: 1.1rem;
+  }
+}

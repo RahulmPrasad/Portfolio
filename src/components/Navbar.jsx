@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 
 const navLinks = [
@@ -14,16 +14,20 @@ const navLinks = [
 
 export default function Navbar() {
     const [hidden, setHidden] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious();
         if (latest > previous && latest > 80) {
             setHidden(true);
+            setIsMenuOpen(false); // Close menu on scroll down
         } else {
             setHidden(false);
         }
     });
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
         <motion.header
@@ -42,8 +46,8 @@ export default function Navbar() {
                     <span className="logo-name">Rahul Prasad</span>
                 </a>
 
-                {/* Nav Links */}
-                <nav className="navbar-links">
+                {/* Nav Links - Desktop Only */}
+                <nav className="navbar-links desktop-only">
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
@@ -58,10 +62,60 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                {/* Resume Button */}
-                <a href="/resume.pdf" className="navbar-resume" target="_blank" rel="noopener noreferrer">
-                    Resume
-                </a>
+                {/* Right Side - Resume & Toggle */}
+                <div className="navbar-right">
+                    <a href="/resume.pdf" className="navbar-resume desktop-only" target="_blank" rel="noopener noreferrer">
+                        Resume
+                    </a>
+
+                    <button 
+                        className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
+                        onClick={toggleMenu}
+                        aria-label="Toggle Menu"
+                    >
+                        <span className="hamburger-line"></span>
+                        <span className="hamburger-line"></span>
+                        <span className="hamburger-line"></span>
+                    </button>
+                </div>
+
+                {/* Mobile Menu Overlay */}
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <motion.div 
+                            className="mobile-menu"
+                            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                        >
+                            <div className="mobile-menu-links">
+                                {navLinks.map((link) => (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        className={`mobile-nav-link ${link.external ? "nav-link--external" : ""}`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        {...(link.external
+                                            ? { target: "_blank", rel: "noopener noreferrer" }
+                                            : {})}
+                                    >
+                                        {link.label}
+                                    </a>
+                                ))}
+                                <a 
+                                    href="/resume.pdf" 
+                                    className="mobile-resume-btn" 
+                                    onClick={() => setIsMenuOpen(false)}
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    Resume
+                                </a>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </motion.header>
     );

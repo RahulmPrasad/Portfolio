@@ -1,51 +1,98 @@
+"use client";
+
+import { motion } from "framer-motion";
 import "./Hero.css";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
+
+const headlineVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      damping: 20,
+    },
+  },
+};
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-grid"></div>
-      <div className="hero-content">
+      <motion.div 
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Profile Image */}
-        <div className="profile-container">
+        <motion.div className="profile-container" variants={itemVariants}>
           <img
-            src="https://avatar.iran.liara.run/public/30" // Placeholder, user can replace with their image
+            src="666.png"
             alt="Rahul Prasad"
             className="profile-img"
           />
-        </div>
+        </motion.div>
 
         {/* Available Badge */}
-        <div className="available-badge">
+        <motion.div className="available-badge" variants={itemVariants}>
           <span className="dot"></span>
           Available Now
-        </div>
+        </motion.div>
 
         {/* Greeting */}
-        <h3 className="hero-greeting">Hello, I'm Rahul Prasad</h3>
+        <motion.h3 className="hero-greeting" variants={itemVariants}>
+          Hello, I'm Rahul Prasad
+        </motion.h3>
 
         {/* Main Headline */}
-        <h1 className="hero-headline">
+        <motion.h1 className="hero-headline" variants={headlineVariants}>
           Not just user <span className="serif-italic">friendly!</span>
           <br />
           Its user <span className="serif-italic">certified.</span>
-        </h1>
+        </motion.h1>
 
         {/* Experience Indicator */}
-        <div className="experience-badge">
+        <motion.div className="experience-badge" variants={itemVariants}>
           <span className="orange-dot"></span>
           3+ Years of Experience
-        </div>
+        </motion.div>
 
         {/* Buttons */}
-        <div className="hero-actions">
+        <motion.div className="hero-actions" variants={itemVariants}>
           <a href="#contact" className="btn-primary">
             Let's Talk <span className="arrow">↗</span>
           </a>
           <a href="/resume.pdf" className="btn-secondary">
             View Resume
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
