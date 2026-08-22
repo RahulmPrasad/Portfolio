@@ -101,8 +101,8 @@ export default function GridShowcase() {
       <div className="section-header">
         <motion.p
           className="header-note"
-          initial={{ opacity: 0, rotate: -5 }}
-          whileInView={{ opacity: 1, rotate: -2 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >

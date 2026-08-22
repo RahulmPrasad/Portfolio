@@ -1,0 +1,219 @@
+/* ───────────────────────────────────────
+   Case Study — minimal editorial layout
+   ─────────────────────────────────────── */
+
+.case-study {
+  background: #fdfdfd;
+  min-height: 100vh;
+  padding: 140px 24px 120px;
+}
+
+.case-study-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #767676;
+  text-decoration: none;
+  margin-bottom: 64px;
+  transition: color 0.2s ease, gap 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.case-study-back:hover {
+  color: #111;
+  gap: 12px;
+}
+
+.case-study-header {
+  margin-bottom: 56px;
+}
+
+.case-study-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a9ba8;
+  margin-bottom: 20px;
+}
+
+.case-study-title {
+  font-family: "Inter", sans-serif;
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.case-study-subheading {
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #59595f;
+  max-width: 560px;
+}
+
+.case-study-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 72px;
+}
+
+.case-study-meta-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a9ba8;
+  margin-bottom: 14px;
+}
+
+.case-study-meta-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-study-meta-col li {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #2b2b2f;
+  padding-left: 16px;
+  position: relative;
+}
+
+.case-study-meta-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9cad4;
+}
+
+.case-study-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.case-study-section h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.case-study-section p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #45454b;
+  max-width: 620px;
+}
+
+.case-study-section p + p {
+  margin-top: 16px;
+}
+
+.case-study-footer {
+  margin-top: 96px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.case-study-footer p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #767676;
+}
+
+.case-study-footer p strong {
+  color: #111;
+  font-weight: 600;
+}
+
+.case-study-footer a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-study-footer-link {
+  width: fit-content;
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.case-study-footer-link:hover {
+  background: #f9f9f9;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ── Responsiveness ── */
+@media (max-width: 640px) {
+  .case-study {
+    padding: 110px 20px 90px;
+  }
+
+  .case-study-title {
+    font-size: 2rem;
+  }
+
+  .case-study-subheading {
+    font-size: 1.02rem;
+  }
+
+  .case-study-meta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .case-study-back {
+    margin-bottom: 44px;
+  }
+
+  .case-study-header {
+    margin-bottom: 40px;
+  }
+}

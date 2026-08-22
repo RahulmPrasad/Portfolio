@@ -53,20 +53,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* Curtain-reveal footer: main sits above the footer with an opaque
-   background. The negative margin pulls the footer up to overlap the last
-   60vh of main — since the footer is sticky (see Footer.css) it's already
-   pinned at the bottom of the viewport underneath that whole overlap zone,
-   and gets progressively uncovered as main's tail scrolls up and out over
-   that distance, instead of snapping into view in the last few pixels of
-   scroll. The footer must be at least (overlap + one viewport) tall for
-   main to ever fully clear the screen — see the min-height on
-   .cinematic-footer in Footer.css. */
 main {
   position: relative;
   z-index: 1;
   background: #f4f4f4;
-  margin-bottom: -60vh;
 }
 
 :root {

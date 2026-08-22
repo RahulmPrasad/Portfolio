@@ -1,0 +1,61 @@
+/* ───────────────────────────────────────
+   Case Study Modal — card expands to a
+   full-screen cover, minimizes back down
+   ─────────────────────────────────────── */
+
+.case-study-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 18, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 200;
+}
+
+.case-study-modal-panel {
+  position: fixed;
+  z-index: 201;
+  background: #fdfdfd;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  will-change: top, left, width, height, border-radius;
+}
+
+.case-study-modal-scroll {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case-study-modal-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 202;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #111;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.case-study-modal-close:hover {
+  background: #f2f2f2;
+  border-color: rgba(0, 0, 0, 0.18);
+  transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .case-study-modal-close {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+}
