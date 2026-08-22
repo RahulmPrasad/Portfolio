@@ -127,6 +127,7 @@ export default function Skills() {
           className="skills-card-shine"
           borderWidth={2}
           duration={7}
+          radius={32}
           gradient="from-fuchsia-500 via-blue-500 to-teal-400"
         >
           <div className="skills-card">

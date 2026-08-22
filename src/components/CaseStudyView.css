@@ -243,6 +243,25 @@
   margin-top: 16px;
 }
 
+/* Square image/video block, dropped under a section's paragraphs. */
+.case-study-media {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  margin-top: 24px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.case-study-media img,
+.case-study-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ── Footer ── */
 .case-study-footer {
   margin-top: 80px;

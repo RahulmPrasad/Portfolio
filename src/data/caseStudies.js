@@ -4,13 +4,22 @@
 
 import { Zap, Users, Rocket, Target, Smartphone, TrendingUp, Layers } from "lucide-react";
 
+// One hero image per project — also reused as the square media block under
+// the Problem/Solution sections until real supporting shots or clips exist
+// for each case study. Swap `media` below to `{ type: "video", src: "..." }`
+// once you have footage.
+const HERO = {
+  sparrow: "https://framerusercontent.com/images/elmW9GbYcA4tCuS8DgcR7wUhus.png?width=4864&height=2200",
+  polystox: "https://framerusercontent.com/images/6RY2hSZsomPvEIsPhxBYVy5vSw.png?width=5760&height=2880",
+  sparrowDesign: "https://framerusercontent.com/images/LEqROcmPmHoaEj7B6RShFNIjU.png?width=3640&height=2240",
+};
+
 const caseStudies = {
   "sparrow-api-errors": {
     eyebrow: "Case Study",
     title: "How We Made API Errors Less of a Headache in Sparrow",
     subtitle: "Sparrow AI",
-    image:
-      "https://framerusercontent.com/images/elmW9GbYcA4tCuS8DgcR7wUhus.png?width=4864&height=2200",
+    image: HERO.sparrow,
     subheading:
       "How user research turned a routine 'improve the error messages' ticket into Sparrow's most-used AI feature.",
     tldr: "Sparrow's error messages were confusing developers into support tickets. I traced what people actually did in the sixty seconds after an error appeared, found they wanted diagnosis rather than decoration, and shipped an inline Error Copilot that explains the cause and proposes a fix in place — cutting resolution time by 38% and becoming Sparrow's most-used AI feature within six weeks.",
@@ -42,6 +51,7 @@ const caseStudies = {
           "Every developer using Sparrow eventually hit the same wall: a red error banner, a status code, and nothing else. The next step was always the same — copy the code, tab over to the docs, then tab over to Slack. Support tickets tagged 'confusing error' had been climbing for two quarters straight.",
           "The original ask that landed on my desk was small: 'make the error messages friendlier.' It didn't take long to see that friendlier copy wasn't going to fix a workflow problem.",
         ],
+        media: { type: "image", src: HERO.sparrow, alt: "Sparrow error banner in context" },
       },
       {
         heading: "The Starting Point",
@@ -70,6 +80,7 @@ const caseStudies = {
           "That insight became the Error Copilot: an inline panel that reads the failing request in context, explains the likely cause in plain language, and proposes a concrete fix — with a one-click escalation to a deeper AI conversation when the fix isn't obvious.",
           "I designed it to appear exactly where developers were already looking, rather than as a separate destination, and worked with engineering to keep the explanation latency under two seconds so it never felt like a detour.",
         ],
+        media: { type: "image", src: HERO.sparrow, alt: "The Error Copilot panel" },
       },
       {
         heading: "Reflection",
@@ -84,8 +95,7 @@ const caseStudies = {
     eyebrow: "Case Study",
     title: "Squeezing a Web Platform onto a Phone?",
     subtitle: "Polystox Case Study — Part 1",
-    image:
-      "https://framerusercontent.com/images/6RY2hSZsomPvEIsPhxBYVy5vSw.png?width=5760&height=2880",
+    image: HERO.polystox,
     subheading:
       "A polymer trading platform needed to go mobile. The brief said 'port the web app.' The research said something else entirely.",
     tldr: "Polystox asked for a straight port of their trading platform to mobile. Research showed traders only ever reached for their phone to monitor a position, react to an alert, and approve a deal — never to run the full desk. Reframing the brief around that gap cut the core flow from 14 taps to 5, before a single production screen was built.",
@@ -117,6 +127,7 @@ const caseStudies = {
           "Polystox had built a successful web platform for polymer trading — dense tables, multi-panel dashboards, dozens of filters. It worked, because traders sat at desks with two monitors. Leadership wanted the same experience on a phone.",
           "'Create a native mobile app' was the literal instruction. Nobody had yet asked whether a phone was the right container for a desktop-shaped workflow.",
         ],
+        media: { type: "image", src: HERO.polystox, alt: "Polystox desktop trading platform" },
       },
       {
         heading: "The Starting Point",
@@ -145,6 +156,7 @@ const caseStudies = {
           "I proposed reframing the brief: instead of porting the full platform, design a focused mobile companion around monitoring, alerts, and approvals — with the full trading console staying on web where it belonged.",
           "That reframing cut the core flow traders cared about most — reacting to an alert and approving a deal — from 14 taps in an early full-parity prototype down to 5, and gave engineering a scoped, buildable v1 instead of an open-ended port.",
         ],
+        media: { type: "image", src: HERO.polystox, alt: "The mobile companion app" },
       },
       {
         heading: "Reflection",
@@ -159,8 +171,7 @@ const caseStudies = {
     eyebrow: "Case Study",
     title: "Revamping the Sparrow Website & Forging a New Design Language",
     subtitle: "Sparrow Design",
-    image:
-      "https://framerusercontent.com/images/LEqROcmPmHoaEj7B6RShFNIjU.png?width=3640&height=2240",
+    image: HERO.sparrowDesign,
     subheading:
       "A 'let's make this look better' request turned into defining the visual identity Sparrow still uses today.",
     tldr: "Sparrow's site had grown one inconsistent page at a time. Instead of a visual refresh, I built a small, disciplined design language — one type scale, one blue, a handful of reusable components — documented as a library the team could build from. It lifted sign-ups 22% and cut new-page design time roughly in half.",
@@ -192,6 +203,7 @@ const caseStudies = {
           "Sparrow's marketing site had grown one landing page at a time — each one designed in isolation, none of them quite agreeing on a typeface, a shade of blue, or a button shape. It functioned, but it didn't say anything about who Sparrow was.",
           "The request that started this project was almost offhand: 'the site feels a bit dated, can we refresh it?'",
         ],
+        media: { type: "image", src: HERO.sparrowDesign, alt: "The old, inconsistent Sparrow site" },
       },
       {
         heading: "The Starting Point",
@@ -220,6 +232,7 @@ const caseStudies = {
           "I built a compact design language from that brief: a single type family with a disciplined scale, one blue used consistently, and a small set of reusable components — not a full new site redesigned page by page.",
           "I documented it as a living component library so future pages could be assembled from approved parts instead of designed from scratch, which is what actually made it stick after I moved on to other work.",
         ],
+        media: { type: "image", src: HERO.sparrowDesign, alt: "The new Sparrow design language" },
       },
       {
         heading: "Reflection",

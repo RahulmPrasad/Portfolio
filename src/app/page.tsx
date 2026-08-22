@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import CurrentlyBuilding from "@/components/CurrentlyBuilding";
+import WhatICanDo from "@/components/WhatICanDo";
 import Skills from "@/components/Skills";
 import ImageCorridor from "@/components/ImageCorridor";
 import Footer from "@/components/Footer";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Intro />
         <CurrentlyBuilding />
+        <WhatICanDo />
         <Skills />
         {/* Scroll Morph Section */}
         {/* <ScrollMorphHero /> */}

@@ -199,6 +199,21 @@ export default function CaseStudyView({ slug, study: studyProp, onClose }) {
                     {section.paragraphs.map((p, j) => (
                       <p key={j}>{p}</p>
                     ))}
+                    {section.media && (
+                      <div className="case-study-media">
+                        {section.media.type === "video" ? (
+                          <video
+                            src={section.media.src}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                          />
+                        ) : (
+                          <img src={section.media.src} alt={section.media.alt ?? ""} />
+                        )}
+                      </div>
+                    )}
                   </motion.section>
                 ))}
               </div>

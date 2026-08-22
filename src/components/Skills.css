@@ -52,12 +52,13 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 24px 60px, rgba(0, 0, 0, 0.05) 0px 4px 12px;
 }
 
-/* Nested a couple pixels inside ShineBorder's own rounded-2xl (16px) ring,
-   so its corners read as roughly concentric with the glow around it. */
+/* Nested a couple pixels inside ShineBorder's own 32px ring (set via its
+   `radius` prop), so its corners read as roughly concentric with the glow
+   around it. */
 .skills-card {
   width: 100%;
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 30px;
   overflow: hidden;
 }
 
