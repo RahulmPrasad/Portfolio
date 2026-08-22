@@ -24,5 +24,9 @@ export default async function CaseStudyPage({ params }) {
     notFound();
   }
 
-  return <CaseStudyView study={study} />;
+  // Pass the slug, not the resolved study object — the study's `impact`
+  // entries embed lucide icon components, which can't be serialized across
+  // the server → client boundary as props. CaseStudyView (client) resolves
+  // it itself from the same data module.
+  return <CaseStudyView slug={slug} />;
 }

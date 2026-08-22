@@ -1,11 +1,14 @@
 /* ───────────────────────────────────────
-   Case Study — minimal editorial layout
+   Case Study — hero image, Detailed/TL;DR
+   toggle, role/impact blocks, long-form
+   sections, floating scroll-to-top
    ─────────────────────────────────────── */
 
 .case-study {
-  background: #fdfdfd;
+  position: relative;
+  background: #f3f0ea;
   min-height: 100vh;
-  padding: 140px 24px 120px;
+  padding: 100px 24px 120px;
 }
 
 .case-study-inner {
@@ -20,9 +23,9 @@
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #767676;
+  color: #86847c;
   text-decoration: none;
-  margin-bottom: 64px;
+  margin-bottom: 28px;
   transition: color 0.2s ease, gap 0.2s ease;
   background: none;
   border: none;
@@ -35,107 +38,204 @@
   gap: 12px;
 }
 
-.case-study-header {
-  margin-bottom: 56px;
+.case-study-tag {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9b988d;
+  margin-bottom: 20px;
 }
 
-.case-study-eyebrow {
+/* ── Hero image ── */
+.case-study-hero {
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.case-study-hero img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* ── Detailed / TL;DR toggle ── */
+.case-study-toggle {
+  display: flex;
+  width: fit-content;
+  gap: 2px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+  margin: 0 auto 48px;
+}
+
+.case-study-toggle-btn {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 8px 20px;
   font-family: "Inter", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #9a9ba8;
-  margin-bottom: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #7a7870;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.case-study-toggle-btn[aria-selected="true"] {
+  color: #111;
+}
+
+.case-study-toggle-pill {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 0;
+}
+
+.case-study-toggle-label {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Headline ── */
+.case-study-header {
+  margin-bottom: 36px;
 }
 
 .case-study-title {
   font-family: "Inter", sans-serif;
-  font-size: 2.75rem;
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: 2.35rem;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.01em;
   color: #111;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .case-study-subheading {
   font-family: "Inter", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 400;
-  line-height: 1.55;
-  color: #59595f;
-  max-width: 560px;
+  line-height: 1.65;
+  color: #5c5a53;
+  max-width: 600px;
 }
 
-.case-study-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 32px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 72px;
+/* ── TL;DR view ── */
+.case-study-tldr {
+  padding: 24px 28px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  margin-bottom: 8px;
 }
 
-.case-study-meta-label {
+.case-study-tldr p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #333129;
+}
+
+/* ── My Role / Impact blocks ── */
+.case-study-block {
+  margin-bottom: 44px;
+}
+
+.case-study-label {
   font-family: "Inter", sans-serif;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9a9ba8;
-  margin-bottom: 14px;
+  color: #9b988d;
+  margin-bottom: 12px;
 }
 
-.case-study-meta-col ul {
+.case-study-role {
+  font-family: "Inter", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #333129;
+  max-width: 600px;
+}
+
+.case-study-impact-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 22px;
 }
 
-.case-study-meta-col li {
+.case-study-impact-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.case-study-impact-heading p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.case-study-impact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #fdeee0;
+  color: #d9772f;
+  flex-shrink: 0;
+}
+
+.case-study-impact-desc {
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  line-height: 1.5;
-  color: #2b2b2f;
-  padding-left: 16px;
-  position: relative;
+  line-height: 1.65;
+  color: #5c5a53;
+  max-width: 600px;
+  margin-left: 38px;
 }
 
-.case-study-meta-col li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #c9cad4;
-}
-
+/* ── Long-form sections ── */
 .case-study-sections {
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .case-study-section h2 {
   font-family: "Inter", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #111;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .case-study-section p {
   font-family: "Inter", sans-serif;
-  font-size: 1.02rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 1.75;
-  color: #45454b;
+  color: #45443c;
   max-width: 620px;
 }
 
@@ -143,10 +243,11 @@
   margin-top: 16px;
 }
 
+/* ── Footer ── */
 .case-study-footer {
-  margin-top: 96px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 80px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -156,7 +257,7 @@
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #767676;
+  color: #86847c;
 }
 
 .case-study-footer p strong {
@@ -190,30 +291,59 @@
   border-color: rgba(0, 0, 0, 0.2);
 }
 
+/* ── Floating scroll-to-top ── */
+.case-study-to-top {
+  position: fixed;
+  right: 28px;
+  bottom: 32px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #333129;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.case-study-to-top:hover {
+  background: #fafafa;
+  transform: translateY(-3px);
+}
+
 /* ── Responsiveness ── */
 @media (max-width: 640px) {
   .case-study {
-    padding: 110px 20px 90px;
+    padding: 88px 18px 90px;
   }
 
   .case-study-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .case-study-subheading {
-    font-size: 1.02rem;
-  }
-
-  .case-study-meta {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    font-size: 1rem;
   }
 
   .case-study-back {
-    margin-bottom: 44px;
+    margin-bottom: 22px;
   }
 
   .case-study-header {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
+  }
+
+  .case-study-hero img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .case-study-to-top {
+    right: 18px;
+    bottom: 18px;
   }
 }

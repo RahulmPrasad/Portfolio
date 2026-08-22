@@ -1,0 +1,169 @@
+/* ───────────────────────────────────────
+   Skills & Tools — light card with
+   category rows, brand-colored icons
+   ─────────────────────────────────────── */
+
+.skills {
+  padding: 80px 24px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.skills-heading-line {
+  width: 56px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.skills-heading-title {
+  font-family: 'Libre Caslon Text', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #111;
+}
+
+.skills-heading-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #767676;
+  margin-top: 12px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* Sizes the ShineBorder wrapper — the shine ring itself is a plain block
+   div with no width of its own, so it just fills this. */
+.skills-card-wrap {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Lifts the whole shine-bordered card off the white page. */
+.skills-card-shine {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 24px 60px, rgba(0, 0, 0, 0.05) 0px 4px 12px;
+}
+
+/* Nested a couple pixels inside ShineBorder's own rounded-2xl (16px) ring,
+   so its corners read as roughly concentric with the glow around it. */
+.skills-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.skills-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 30px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background 0.25s ease;
+}
+
+.skills-row:last-child {
+  border-bottom: none;
+}
+
+.skills-row:hover {
+  background: #fafafa;
+}
+
+.skills-row-text {
+  flex: 0 0 auto;
+  width: 260px;
+}
+
+.skills-row-text h3 {
+  font-family: 'Libre Caslon Text', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.skills-row-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #767676;
+}
+
+.skills-row-divider {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.skills-row-icons {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.skills-row-icon {
+  font-size: 1.75rem;
+  color: var(--icon-color, #767676);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.skills-row-icon:hover {
+  transform: translateY(-4px) scale(1.12);
+  filter: drop-shadow(0 6px 14px color-mix(in srgb, var(--icon-color, #767676) 45%, transparent));
+}
+
+@media (max-width: 860px) {
+  .skills-row {
+    flex-wrap: wrap;
+    padding: 26px 28px;
+    gap: 18px;
+  }
+
+  .skills-row-text {
+    width: 100%;
+  }
+
+  .skills-row-divider {
+    display: none;
+  }
+
+  .skills-row-icons {
+    width: 100%;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .skills {
+    padding: 64px 16px;
+  }
+
+  .skills-heading-line {
+    width: 32px;
+  }
+
+  .skills-heading-title {
+    font-size: 1.6rem;
+  }
+
+  .skills-row {
+    padding: 22px 20px;
+  }
+
+  .skills-row-icon {
+    font-size: 1.5rem;
+  }
+}

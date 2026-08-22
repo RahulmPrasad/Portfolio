@@ -38,14 +38,25 @@ const ScrollStack = ({
     const stackPositionPx = stackPosition * window.innerHeight;
     const transitionRange = Math.max(itemStackDistance * 4, 150);
     const lastIndex = cards.length - 1;
+    // Reference point only — where earlier cards hand off to the last one
+    // arriving. The last card itself no longer pins against this; see below.
     const lastPinStart = cardTops[lastIndex] - stackPositionPx - itemStackDistance * lastIndex;
-    const lastPinEnd = lastPinStart + Math.max(itemStackDistance * 6, 200);
 
     cards.forEach((card, i) => {
       const isLast = i === lastIndex;
+
+      if (isLast) {
+        // The last card has no next card to hand off to, so pinning it
+        // just freezes it for an arbitrary stretch and then lets go —
+        // which reads as the card getting stuck and then snapping/
+        // dragging into whatever follows. Let it scroll through normally.
+        card.style.transform = 'translate3d(0, 0px, 0) scale(1)';
+        return;
+      }
+
       const cardTop = cardTops[i];
       const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
-      const pinEnd = isLast ? lastPinEnd : lastPinStart;
+      const pinEnd = lastPinStart;
 
       let translateY = 0;
       if (scrollY >= pinStart && scrollY <= pinEnd) {
@@ -55,7 +66,7 @@ const ScrollStack = ({
       }
 
       const progress = Math.max(0, Math.min(1, (scrollY - pinStart) / transitionRange));
-      const scale = isLast ? 1 : 1 - progress * (1 - itemScale);
+      const scale = 1 - progress * (1 - itemScale);
 
       card.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
     });

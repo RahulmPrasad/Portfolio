@@ -2,22 +2,38 @@
 // and src/components/CaseStudyView.jsx. Add a new object here + a matching
 // `slug` on a project in CurrentlyBuilding.jsx to publish a new case study.
 
+import { Zap, Users, Rocket, Target, Smartphone, TrendingUp, Layers } from "lucide-react";
+
 const caseStudies = {
   "sparrow-api-errors": {
     eyebrow: "Case Study",
     title: "How We Made API Errors Less of a Headache in Sparrow",
     subtitle: "Sparrow AI",
+    image:
+      "https://framerusercontent.com/images/elmW9GbYcA4tCuS8DgcR7wUhus.png?width=4864&height=2200",
     subheading:
       "How user research turned a routine 'improve the error messages' ticket into Sparrow's most-used AI feature.",
-    role: [
-      "Led end-to-end design for the API Error Copilot feature",
-      "Partnered daily with 2 engineers, 1 PM, and the AI/ML team",
-      "Ran discovery interviews with 12 developers using Sparrow",
-    ],
+    tldr: "Sparrow's error messages were confusing developers into support tickets. I traced what people actually did in the sixty seconds after an error appeared, found they wanted diagnosis rather than decoration, and shipped an inline Error Copilot that explains the cause and proposes a fix in place — cutting resolution time by 38% and becoming Sparrow's most-used AI feature within six weeks.",
+    role: "Design lead — owned research, UX, and interaction design for the Error Copilot feature, working daily with 2 engineers, 1 PM, and the AI/ML team.",
     impact: [
-      "Cut average error-resolution time by 38% in beta",
-      "Shipped to 100% of Sparrow AI users within one quarter",
-      "Became the most-used AI-assisted feature within 6 weeks",
+      {
+        icon: Zap,
+        title: "Faster Error Resolution",
+        description:
+          "Cut average resolution time by 38% in beta by surfacing the cause and a concrete fix inline, instead of sending developers off to docs and Slack.",
+      },
+      {
+        icon: Users,
+        title: "Fastest-Growing AI Feature",
+        description:
+          "Became Sparrow's most-used AI-assisted feature within 6 weeks of launch, with usage climbing every week post-release.",
+      },
+      {
+        icon: Rocket,
+        title: "Shipped to Every Customer",
+        description:
+          "Rolled out to 100% of Sparrow AI users within a single quarter, with no dedicated onboarding required.",
+      },
     ],
     sections: [
       {
@@ -68,17 +84,31 @@ const caseStudies = {
     eyebrow: "Case Study",
     title: "Squeezing a Web Platform onto a Phone?",
     subtitle: "Polystox Case Study — Part 1",
+    image:
+      "https://framerusercontent.com/images/6RY2hSZsomPvEIsPhxBYVy5vSw.png?width=5760&height=2880",
     subheading:
       "A polymer trading platform needed to go mobile. The brief said 'port the web app.' The research said something else entirely.",
-    role: [
-      "Led product design discovery and mobile IA from scratch",
-      "Partnered with the founding team and 1 mobile engineer",
-      "Interviewed 9 active traders across desktop and field use",
-    ],
+    tldr: "Polystox asked for a straight port of their trading platform to mobile. Research showed traders only ever reached for their phone to monitor a position, react to an alert, and approve a deal — never to run the full desk. Reframing the brief around that gap cut the core flow from 14 taps to 5, before a single production screen was built.",
+    role: "Product design lead — ran discovery from scratch, defined the mobile IA, and partnered with the founding team and one mobile engineer.",
     impact: [
-      "Reduced the core trading flow from 14 taps to 5",
-      "Redefined the mobile brief before a single screen was built",
-      "Set the IA that shipped across both iOS and Android",
+      {
+        icon: Zap,
+        title: "5-Tap Core Flow",
+        description:
+          "Reduced the trading team's most important mobile flow — react to an alert, approve a deal — from 14 taps in an early full-parity prototype down to 5.",
+      },
+      {
+        icon: Target,
+        title: "Reframed the Brief",
+        description:
+          "Replaced 'port the web app' with a focused monitor-alert-approve companion, before a single production screen was built.",
+      },
+      {
+        icon: Smartphone,
+        title: "Set the Shipped IA",
+        description:
+          "The information architecture from this discovery phase shipped unchanged across both iOS and Android.",
+      },
     ],
     sections: [
       {
@@ -129,17 +159,31 @@ const caseStudies = {
     eyebrow: "Case Study",
     title: "Revamping the Sparrow Website & Forging a New Design Language",
     subtitle: "Sparrow Design",
+    image:
+      "https://framerusercontent.com/images/LEqROcmPmHoaEj7B6RShFNIjU.png?width=3640&height=2240",
     subheading:
       "A 'let's make this look better' request turned into defining the visual identity Sparrow still uses today.",
-    role: [
-      "Owned visual direction for the marketing site and design system",
-      "Collaborated with the founder, a copywriter, and 2 engineers",
-      "Built and documented the component library that followed",
-    ],
+    tldr: "Sparrow's site had grown one inconsistent page at a time. Instead of a visual refresh, I built a small, disciplined design language — one type scale, one blue, a handful of reusable components — documented as a library the team could build from. It lifted sign-ups 22% and cut new-page design time roughly in half.",
+    role: "Visual design lead — owned the design language and marketing site, working with the founder, a copywriter, and 2 engineers.",
     impact: [
-      "Lifted homepage sign-up conversion by 22% post-launch",
-      "Design language adopted across product, deck, and brand",
-      "Cut new-page design time in half via the component library",
+      {
+        icon: TrendingUp,
+        title: "+22% Sign-Up Conversion",
+        description:
+          "The relaunched homepage lifted sign-up conversion by 22% against the previous inconsistent design.",
+      },
+      {
+        icon: Layers,
+        title: "Adopted Company-Wide",
+        description:
+          "The design language spread beyond the website into the product, the pitch deck, and the brand — not just the pages I touched.",
+      },
+      {
+        icon: Zap,
+        title: "~50% Faster Page Design",
+        description:
+          "A documented component library cut new marketing page design time roughly in half for the team after launch.",
+      },
     ],
     sections: [
       {
