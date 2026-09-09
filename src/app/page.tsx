@@ -4,7 +4,7 @@ import Intro from "@/components/Intro";
 import CurrentlyBuilding from "@/components/CurrentlyBuilding";
 import WhatICanDo from "@/components/WhatICanDo";
 import Skills from "@/components/Skills";
-import ImageCorridor from "@/components/ImageCorridor";
+import { InfiniteSliderHorizontal } from "@/components/InfiniteSliderHorizontalDemo";
 import Footer from "@/components/Footer";
 import ScrollMorphHero from "@/components/scroll-morph-hero";
 
@@ -20,7 +20,7 @@ export default function Home() {
         <Skills />
         {/* Scroll Morph Section */}
         {/* <ScrollMorphHero /> */}
-        <ImageCorridor />
+        <InfiniteSliderHorizontal />
       </main>
       <Footer />
     </>
