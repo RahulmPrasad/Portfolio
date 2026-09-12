@@ -12,9 +12,55 @@ const HERO = {
   sparrow: "https://framerusercontent.com/images/elmW9GbYcA4tCuS8DgcR7wUhus.png?width=4864&height=2200",
   polystox: "https://framerusercontent.com/images/6RY2hSZsomPvEIsPhxBYVy5vSw.png?width=5760&height=2880",
   sparrowDesign: "https://framerusercontent.com/images/LEqROcmPmHoaEj7B6RShFNIjU.png?width=3640&height=2240",
+  intasohn: "/int5.png",
 };
 
 const caseStudies = {
+  // Scaffolding only — every TODO below is a placeholder so the modal in
+  // InfiniteSliderHorizontalDemo.tsx has something real to render. Swap in
+  // the actual problem/solution/impact copy for the Intasöhn project.
+  "intasohn-inspection-services": {
+    eyebrow: "Case Study",
+    title: "TODO: Intasöhn GmbH — Third Party Inspection Services website",
+    subtitle: "Intasöhn GmbH",
+    image: HERO.intasohn,
+    subheading: "TODO: one-line summary of what this project was and why it mattered.",
+    tldr: "TODO: 2-4 sentence TL;DR of the problem, what you did, and the outcome.",
+    role: "TODO: your role on this project and who you worked with.",
+    impact: [
+      {
+        icon: Zap,
+        title: "TODO: impact headline",
+        description: "TODO: one concrete result, in plain terms.",
+      },
+      {
+        icon: Users,
+        title: "TODO: impact headline",
+        description: "TODO: one concrete result, in plain terms.",
+      },
+      {
+        icon: Rocket,
+        title: "TODO: impact headline",
+        description: "TODO: one concrete result, in plain terms.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Problem",
+        paragraphs: ["TODO: what was the problem or ask that started this project?"],
+        media: { type: "image", src: HERO.intasohn, alt: "Intasöhn website" },
+      },
+      {
+        heading: "Solution",
+        paragraphs: ["TODO: what did you design/build, and why?"],
+      },
+      {
+        heading: "Reflection",
+        paragraphs: ["TODO: what did you learn, or what would you do differently?"],
+      },
+    ],
+  },
+
   "sparrow-api-errors": {
     eyebrow: "Case Study",
     title: "How We Made API Errors Less of a Headache in Sparrow",

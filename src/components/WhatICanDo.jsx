@@ -47,7 +47,7 @@ export default function WhatICanDo() {
             </p>
           </div>
           <div className="wicd-visual wicd-visual-web">
-            <img src="/int5.png" alt="" />
+            <img src="/aps1.png" alt="" />
           </div>
         </motion.article>
       </div>
