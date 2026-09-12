@@ -162,6 +162,26 @@
 
 /* ── Responsiveness ── */
 @media (max-width: 1024px) {
+  .intro-section {
+    /* Stack the lanyard box above the text instead of the desktop's
+       side-by-side row (which .intro-lanyard-layer's absolute overlay
+       depends on to land next to, not on top of, the bio text). */
+    flex-direction: column;
+    padding: 100px 20px 60px;
+  }
+
+  .intro-lanyard-layer {
+    /* No longer a full-bleed backdrop behind the whole section — a
+       normal-flow box sized just for the card, sitting above the text. */
+    position: relative;
+    inset: auto;
+    left: auto;
+    width: 100%;
+    max-width: 420px;
+    height: 380px;
+    margin-bottom: 20px;
+  }
+
   .intro-container {
     flex-direction: column;
     gap: 60px;
@@ -169,7 +189,10 @@
   }
 
   .intro-card-wrapper {
-    flex: 0 0 auto;
+    /* Was only a layout spacer for the absolute lanyard layer next to it;
+       the layer now takes its own space above, so this has nothing left
+       to reserve. */
+    display: none;
   }
 
   .bio-text {
@@ -179,5 +202,11 @@
 
   .intro-actions {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-lanyard-layer {
+    height: 320px;
   }
 }

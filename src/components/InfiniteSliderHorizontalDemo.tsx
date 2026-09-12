@@ -24,7 +24,7 @@ const images = [
   },
   {
     title: "Intasöhn — Desktop hero",
-    image: "/int5.png",
+    image: "/Mockup-apsolute.png",
     slug: INTASOHN_SLUG,
   },
   {

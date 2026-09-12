@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -13,15 +13,38 @@ const iconRenderConfig = {
   autoResize: true,
 };
 
+// Below this width .intro-section stacks into a column (see Intro.css) and
+// the lanyard layer goes from a full-bleed absolute backdrop to a bounded,
+// in-flow box above the text — so the camera needs to sit further back to
+// keep the whole card + lanyard band inside that shorter box instead of
+// spilling past its edges.
+const MOBILE_BREAKPOINT = 1024;
+
 export default function Intro() {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
+  );
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <section className="intro-section">
-      {/* Full-bleed canvas behind the text, so dragging the card never gets
-          clipped at a small box's edge — only the camera framing keeps its
-          resting position over on the left. */}
+      {/* Desktop: full-bleed canvas behind the text, so dragging the card
+          never gets clipped at a small box's edge — only the camera framing
+          keeps its resting position over on the left. Mobile: a bounded,
+          in-flow box above the text (see Intro.css), so the camera sits
+          further back (position below) to still fit the whole card. */}
       <div className="intro-lanyard-layer">
         <Suspense fallback={null}>
-          <Lanyard position={[0, 0, 14]} gravity={[0, -40, 0]} frontImage="/me.jpeg" />
+          <Lanyard
+            position={isMobile ? [0, 0, 22] : [0, 0, 14]}
+            gravity={[0, -40, 0]}
+            frontImage="/me.jpeg"
+          />
         </Suspense>
       </div>
 
