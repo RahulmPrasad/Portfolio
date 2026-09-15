@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "framer-motion";
+import { PearlButton } from "./ui/pearl-button";
 import "./Navbar.css";
 
 const navLinks = [
@@ -64,9 +65,17 @@ export default function Navbar() {
 
                 {/* Right Side - Resume & Toggle */}
                 <div className="navbar-right">
-                    <a href="/resume.pdf" className="navbar-resume desktop-only" target="_blank" rel="noopener noreferrer">
+                    <PearlButton
+                        href="/resume.pdf"
+                        size="sm"
+                        icon={null}
+                        hoverIcon={null}
+                        className="desktop-only"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         Resume
-                    </a>
+                    </PearlButton>
 
                     <button 
                         className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
@@ -103,15 +112,18 @@ export default function Navbar() {
                                         {link.label}
                                     </a>
                                 ))}
-                                <a 
-                                    href="/resume.pdf" 
-                                    className="mobile-resume-btn" 
+                                <PearlButton
+                                    href="/resume.pdf"
+                                    size="sm"
+                                    icon={null}
+                                    hoverIcon={null}
+                                    className="mobile-resume-btn"
                                     onClick={() => setIsMenuOpen(false)}
-                                    target="_blank" 
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Resume
-                                </a>
+                                </PearlButton>
                             </div>
                         </motion.div>
                     )}

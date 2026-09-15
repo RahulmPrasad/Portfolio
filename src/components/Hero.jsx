@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PearlButton } from "./ui/pearl-button";
 import "./Hero.css";
 
 const containerVariants = {
@@ -85,12 +86,12 @@ export default function Hero() {
 
         {/* Buttons */}
         <motion.div className="hero-actions" variants={itemVariants}>
-          <a href="#contact" className="btn-primary">
+          <PearlButton href="#contact" size="md" icon={null} hoverIcon={null}>
             Let's Talk <span className="arrow">↗</span>
-          </a>
-          <a href="/resume.pdf" className="btn-secondary">
+          </PearlButton>
+          <PearlButton href="/resume.pdf" size="md" variant="white" icon={null} hoverIcon={null}>
             View Resume
-          </a>
+          </PearlButton>
         </motion.div>
       </motion.div>
     </section>

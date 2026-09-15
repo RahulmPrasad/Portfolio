@@ -55,7 +55,6 @@
 }
 
 .bio-text {
-  font-family: var(--font-geist-sans), sans-serif;
   letter-spacing: -.02em;
   color: #111;
   max-width: 675px;

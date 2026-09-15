@@ -49,7 +49,6 @@
 }
 
 .contact-heading {
-  font-family: var(--font-geist-sans), sans-serif;
   font-size: clamp(2.2rem, 6vw, 3.6rem);
   font-weight: 700;
   line-height: 1.15;
@@ -60,7 +59,6 @@
 }
 
 .contact-heading-accent {
-  font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 500;
   background: linear-gradient(90deg, #c084fc, #f472b6);

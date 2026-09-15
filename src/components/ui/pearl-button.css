@@ -1,0 +1,194 @@
+/* ───────────────────────────────────────
+   Pearl Button — glossy dark pill used for
+   every primary CTA across the site.
+   ─────────────────────────────────────── */
+
+.pearl-button {
+  --bg: #080808;
+  --radius: 100px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  display: inline-flex;
+  position: relative;
+  border-radius: var(--radius);
+  background-color: var(--bg);
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.18),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.5);
+}
+
+.pearl-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 14px 30px;
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.pearl-p {
+  display: flex;
+  align-items: center;
+  gap: inherit;
+  margin: 0;
+  transition: all 0.2s ease;
+  transform: translateY(2%);
+  -webkit-mask-image: linear-gradient(to bottom, white 40%, transparent);
+  mask-image: linear-gradient(to bottom, white 40%, transparent);
+}
+
+.pearl-icon--hover {
+  display: none;
+}
+
+.pearl-button:hover .pearl-icon--default {
+  display: none;
+}
+
+.pearl-button:hover .pearl-icon--hover {
+  display: inline-block;
+}
+
+.pearl-wrap::before,
+.pearl-wrap::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.pearl-wrap::before {
+  left: -15%;
+  right: -15%;
+  bottom: 25%;
+  top: -100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.pearl-wrap::after {
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 40%;
+  border-radius: 22px 22px 0 0;
+  box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.pearl-button:hover {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.18),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.5);
+}
+
+.pearl-button:hover .pearl-wrap::before {
+  transform: translateY(-5%);
+}
+
+.pearl-button:hover .pearl-wrap::after {
+  opacity: 0.4;
+  transform: translateY(5%);
+}
+
+.pearl-button:hover .pearl-p {
+  transform: translateY(-4%);
+}
+
+.pearl-button:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.18),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.5);
+}
+
+/* ── White variant ──
+   Same glossy-pearl construction, inverted: a pale pearlescent fill with
+   dark text, so it reads as a light-pill counterpart (e.g. a secondary
+   CTA next to a --dark primary) instead of a flat white button. */
+.pearl-button--white {
+  --bg: #fdf7fb;
+  box-shadow:
+    inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.9),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.06),
+    inset 0 -0.4rem 0.9rem rgba(255, 231, 255, 0.6),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.08),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12);
+}
+
+.pearl-button--white .pearl-wrap {
+  color: rgba(20, 16, 20, 0.8);
+}
+
+.pearl-button--white .pearl-wrap::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pearl-button--white .pearl-wrap::after {
+  box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.pearl-button--white:hover {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 1),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.06),
+    inset 0 -0.4rem 0.9rem rgba(255, 231, 255, 0.8),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.08),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12);
+}
+
+.pearl-button--white:active {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 1),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.08),
+    inset 0 -0.4rem 0.9rem rgba(255, 231, 255, 0.5),
+    0 1.2rem 1.5rem rgba(0, 0, 0, 0.08),
+    0 0.5rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12);
+}
+
+/* ── Sizes ── */
+/* The original design's default (32px/45px padding, 25px font) is kept
+   as --lg for a hero-scale moment; --md and --sm scale it down to match
+   this site's existing button footprints (14px/32px and 8-12px paddings)
+   so every button gets the glossy treatment without suddenly ballooning
+   in size relative to the rest of the layout. */
+.pearl-button--lg .pearl-wrap {
+  font-size: 25px;
+  padding: 32px 45px;
+}
+
+.pearl-button--md .pearl-wrap {
+  font-size: 1rem;
+  padding: 14px 30px;
+}
+
+.pearl-button--sm .pearl-wrap {
+  font-size: 0.9rem;
+  padding: 9px 22px;
+  gap: 8px;
+}

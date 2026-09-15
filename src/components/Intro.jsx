@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { PearlButton } from "./ui/pearl-button";
 import "./Intro.css";
 
 const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
@@ -101,9 +102,9 @@ export default function Intro() {
             <div className="intro-actions">
               <div className="resume-stack">
                 <div className="icon-badge amazon"></div>
-                <button className="action-btn white">Resume</button>
+                <PearlButton size="md" variant="white">Resume</PearlButton>
               </div>
-              <button className="action-btn black">About Me</button>
+              <PearlButton size="md">About Me</PearlButton>
             </div>
           </motion.div>
         </div>

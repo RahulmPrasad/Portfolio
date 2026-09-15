@@ -13,7 +13,6 @@
 }
 
 .wicd-title {
-  font-family: "Inter", sans-serif;
   font-weight: 800;
   font-size: clamp(2rem, 4.5vw, 2.75rem);
   letter-spacing: -0.01em;
@@ -26,7 +25,6 @@
 }
 
 .wicd-subtitle {
-  font-family: "Inter", sans-serif;
   font-size: 1.02rem;
   font-weight: 400;
   color: #6d6e78;
@@ -66,7 +64,6 @@
 }
 
 .wicd-card-text h3 {
-  font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: #111;
@@ -74,7 +71,6 @@
 }
 
 .wicd-card-text p {
-  font-family: "Inter", sans-serif;
   font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.55;
@@ -93,6 +89,22 @@
   min-height: 220px;
 }
 
+/* Shared shimmer sweep used by the skeleton-UI graphics below — a loading
+   placeholder, permanently mid-load, standing in for "a live interface"
+   rather than a screenshot of one. */
+@keyframes wicd-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.wicd-skeleton-line {
+  border-radius: 5px;
+  background: linear-gradient(90deg, #e9e9ee 25%, #f6f6f9 45%, #e9e9ee 65%);
+  background-size: 300% 100%;
+  animation: wicd-shimmer 2.2s ease-in-out infinite;
+}
+
+/* ── Web/Mobile UI UX: two stacked "app screen" skeletons ── */
 .wicd-visual-uiux {
   display: flex;
   align-items: flex-end;
@@ -101,25 +113,49 @@
   padding-top: 20px;
 }
 
+.wicd-skeleton-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.wicd-skeleton-phone .wicd-skeleton-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  flex-shrink: 0;
+}
+
+.wicd-skeleton-phone .wicd-skeleton-dot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.wicd-skeleton-phone .wicd-skeleton-line {
+  height: 8px;
+}
+
 .wicd-visual-uiux .wicd-phone {
   width: 42%;
-  border-radius: 14px 14px 0 0;
-  object-fit: cover;
-  object-position: top;
   height: 92%;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 14px 14px 0 0;
 }
 
 .wicd-visual-uiux .wicd-panel {
   width: 62%;
-  border-radius: 12px 0 0 0;
-  object-fit: cover;
-  object-position: top left;
   height: 78%;
   margin-left: -14%;
+  border-radius: 12px 0 0 0;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* ── Website Development: an animated browser window ── */
 .wicd-visual-web {
   display: flex;
   align-items: flex-start;
@@ -127,25 +163,113 @@
   padding-top: 18px;
 }
 
-.wicd-visual-web img {
+.wicd-browser {
   width: 92%;
   border-radius: 12px 12px 0 0;
-  object-fit: cover;
-  object-position: top;
-  height: 100%;
+  background: #fff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
-.wicd-visual-brand {
+.wicd-browser-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #f4f4f6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.wicd-visual-brand img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.wicd-browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.wicd-browser-dot.red { background: #ff5f57; }
+.wicd-browser-dot.amber { background: #febc2e; }
+.wicd-browser-dot.green { background: #28c840; }
+
+.wicd-browser-address {
+  flex: 1;
+  height: 14px;
+  border-radius: 7px;
+  background: #e7e7ec;
+  margin-left: 8px;
+}
+
+.wicd-browser-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wicd-browser-body .wicd-skeleton-line {
+  height: 9px;
+}
+
+.wicd-browser-progress-track {
+  margin-top: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #eee;
+  overflow: hidden;
+  position: relative;
+}
+
+.wicd-browser-progress-fill {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+}
+
+/* ── Branding & Logo: a morphing mark + a pulsing color system ── */
+.wicd-visual-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.wicd-brandmark {
+  position: relative;
+  width: 84px;
+  height: 84px;
+}
+
+.wicd-brandmark-shape {
+  position: absolute;
+  inset: 0;
+}
+
+.wicd-brandmark-shape.a {
+  background: linear-gradient(135deg, #0f4c5c, #22c55e);
+  box-shadow: 0 14px 28px rgba(15, 76, 92, 0.25);
+}
+
+.wicd-brandmark-shape.b {
+  inset: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  opacity: 0.85;
+}
+
+.wicd-swatch-row {
+  display: flex;
+  gap: 10px;
+}
+
+.wicd-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .wicd-visual-motion {
@@ -157,9 +281,9 @@
 .wicd-motion-shape {
   width: 96px;
   height: 96px;
-  border-radius: 24px;
+  /* border-radius and rotation are animated inline by framer-motion
+     (see WhatICanDo.jsx) — no static values needed here. */
   background: linear-gradient(145deg, #ec4899, #8b5cf6);
-  transform: rotate(35deg);
   box-shadow: 0 20px 40px rgba(139, 92, 246, 0.35);
   position: relative;
 }

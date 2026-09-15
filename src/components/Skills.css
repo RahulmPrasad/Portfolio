@@ -25,14 +25,12 @@
 }
 
 .skills-heading-title {
-  font-family: 'Libre Caslon Text', serif;
   font-weight: 700;
   font-size: 2rem;
   color: #111;
 }
 
 .skills-heading-subtitle {
-  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #767676;
   margin-top: 12px;
@@ -85,7 +83,6 @@
 }
 
 .skills-row-text h3 {
-  font-family: 'Libre Caslon Text', serif;
   font-weight: 700;
   font-size: 1.3rem;
   color: #111;
@@ -93,7 +90,6 @@
 }
 
 .skills-row-text p {
-  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   color: #767676;
 }
